@@ -7,15 +7,17 @@ const Posts = ({posts, loading}) => {
   return (
     <div>
       <ul>
-        {posts.map(post => {
+        {posts.map(post => (
+
           <li
           key={post.id}
           className="list-item"
           >
             {post.title}
           </li>
-        })}
+        ))}
       </ul>
     </div>
   )
 }
+export default Posts
