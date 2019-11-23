@@ -22,6 +22,7 @@ const  App = () => {
   }, []
   )
   console.log(posts)
+  const paginate = (pageNumber) => setPage(pageNumber)
 
   const indexOfLastPost = currentPage * postsPerPage
   const indexOfFirstPost = indexOfLastPost - postsPerPage
@@ -32,7 +33,7 @@ const  App = () => {
       <h1>My App</h1>
 
     <Posts posts={currentPosts} loading={loading}/>
-    <Pagination postsPerPage={postsPerPage} totalPosts={posts.length}/>
+    <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} paginate={paginate}/>
     </div>
   );
 }
