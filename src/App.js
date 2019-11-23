@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
+import Posts from'./components/Posts'
 
 const  App = () => {
   const [posts, setPosts] = useState([])
@@ -20,9 +21,16 @@ const  App = () => {
   }, []
   )
   console.log(posts)
+
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost)
+
   return (
     <div className="App">
       <h1>My App</h1>
+
+    <Posts posts={currentPosts} loading={loading}></Posts>
     </div>
   );
 }
